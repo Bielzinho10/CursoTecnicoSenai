@@ -1,0 +1,66 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Insira o texto: ");
+		string input = Console.ReadLine();
+		int contador = 0;
+		char[] vogais = 
+		{
+			'a',
+			'e',
+			'i',
+			'o',
+			'u'
+		};
+		//Console.WriteLine(vogais[5]);
+		Console.WriteLine();
+		//vogais[5] = "vogal";
+		foreach (char caractere in input)
+		{
+			if (Array.Exists(vogais, vogal => vogal == caractere))
+			{
+				Console.WriteLine($"A letra '{caractere}' é uma vogal");
+				contador++;
+			}
+		}
+
+		string[] consoantes = new string[21]
+		{
+			"b",
+			"c",
+			"d",
+			"f",
+			"g",
+			"h",
+			"j",
+			"k",
+			"l",
+			"m",
+			"n",
+			"p",
+			"q",
+			"r",
+			"s",
+			"t",
+			"v",
+			"w",
+			"x",
+			"y",
+			"z"
+		};
+		//Console.WriteLine(consoantes[21]);
+		Console.WriteLine();
+		//consoantes[21] = "consoante";
+		foreach (string consoante in consoantes)
+		{
+			if (consoante == input)
+				Console.WriteLine($"A letra '{consoante}' é uma consoante");
+		}
+		
+		 Console.WriteLine();
+        Console.WriteLine($"Número total de vogais: {contador}");
+	}
+}

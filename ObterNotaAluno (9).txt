@@ -1,0 +1,18 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Número para a tabuada");
+		if (int.TryParse(Console.ReadLine(),out int numero)) 
+ 
+			{
+				  for (int contabil =1; contabil<=10; contabil++)
+					
+					Console.WriteLine($"{contabil} x {numero} = {contabil*numero}");
+			}
+			
+						
+	}
+}

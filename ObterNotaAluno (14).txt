@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Bem-vindo ao Gerador de numeros da Sorte da Mega-Sena!");
+
+    
+        Console.Write("Digite a quantidade de jogos que voce deseja fazer: ");
+        if (int.TryParse(Console.ReadLine(), out int quantidadeJogos) && quantidadeJogos > 0)
+        {
+            
+            Console.Write("Digite a quantidade de dezenas por jogo (de 6 a 15): ");
+            if (int.TryParse(Console.ReadLine(), out int quantidadeDezenas) &&
+                quantidadeDezenas >= 6 && quantidadeDezenas <= 15)
+            {
+           
+                List<List<int>> jogos = GerarJogos(quantidadeJogos, quantidadeDezenas);
+
+                Console.WriteLine("\nSeus numeros da sorte para a Mega-Sena são:");
+                for (int i = 0; i < jogos.Count; i++)
+                {
+                    Console.WriteLine($"Jogo {i + 1}: {string.Join(", ", jogos[i])}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Quantidade de dezenas invalida. Deve estar entre 6 e 15.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Quantidade de jogos invalida. Por favor, digite um numero positivo.");
+        }
+    }
+
+    static List<List<int>> GerarJogos(int quantidadeJogos, int quantidadeDezenas)
+    {
+        List<List<int>> jogos = new List<List<int>>();
+        Random random = new Random();
+
+        for (int i = 0; i < quantidadeJogos; i++)
+        {
+            HashSet<int> numeros = new HashSet<int>();
+
+          
+            while (numeros.Count < quantidadeDezenas)
+            {
+                numeros.Add(random.Next(1, 61)); 
+            }
+
+           
+            jogos.Add(new List<int>(numeros));
+        }
+
+        return jogos;
+    }
+}

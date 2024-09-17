@@ -1,0 +1,49 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Insira um número");
+		if (double.TryParse(Console.ReadLine(), out double numero))
+		{
+			Console.WriteLine("Insira o operador: (+,-,*,/)");
+			string operador = Console.ReadLine();
+			switch (operador)
+			{
+				case "+":
+					for (int contabil = 1; contabil <= 10; contabil++)
+					{
+						Console.WriteLine($"{contabil} + {numero} = {contabil + numero}");
+					}
+
+					break;
+				case "-":
+					for (int contabil = 1; contabil <= 10; contabil++)
+					{
+						Console.WriteLine($"{contabil} - {numero} = {contabil - numero}");
+					}
+
+					break;
+					case "*":
+					for (int contabil = 1; contabil <= 10; contabil++)
+					{
+						Console.WriteLine($"{contabil} x {numero} = {contabil * numero}");
+					}
+
+					break;
+					case "/":
+					for (int contabil = 1; contabil <= 10; contabil++)
+					{
+						Console.WriteLine($"{numero} / {contabil} = {Math.Round(numero / contabil, 1)}");
+					}
+
+					break;
+			}
+		}
+		else
+		{
+			Console.WriteLine("Valor invalido.");
+		}
+	}
+}

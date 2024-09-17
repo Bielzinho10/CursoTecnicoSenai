@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        
+        HashSet<int> dezenas = new HashSet<int>();
+        
+        
+        Random random = new Random();
+        
+       
+        while (dezenas.Count < 6)
+        {
+            int numero = random.Next(1, 61);
+            dezenas.Add(numero);
+        }
+        
+       
+        List<int> listaDezenas = new List<int>(dezenas);
+        listaDezenas.Sort();
+        
+        
+        Console.WriteLine("Números da sorte Mega-Sena: " + string.Join("-", listaDezenas));
+    }
+}

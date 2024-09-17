@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Random random = new Random();
+        
+        Console.WriteLine("Bem-vindo ao jogo Mega-Sena:");
+
+       
+        Console.Write("Informe a quantidade de jogos de 6 dezenas que deseja fazer: ");
+        int quantidadeJogos = int.Parse(Console.ReadLine());
+
+  
+        int quantidadeDezenas;
+        do
+        {
+            Console.Write("Informe a quantidade de dezenas (entre 6 e 15): ");
+            quantidadeDezenas = int.Parse(Console.ReadLine());
+
+            if (quantidadeDezenas < 6 || quantidadeDezenas > 15)
+            {
+                Console.WriteLine("Numero invalido! A quantidade de dezenas deve estar entre 6 e 15.");
+            }
+
+        } while (quantidadeDezenas < 6 || quantidadeDezenas > 15);
+
+      
+        for (int i = 1; i <= quantidadeJogos; i++)
+        {
+            List<int> dezenas = GenerateDezenas(random, quantidadeDezenas);
+            Console.WriteLine($"Jogo {i}: {string.Join("-", dezenas)}");
+        }
+    }
+
+    static List<int> GenerateDezenas(Random random, int quantidadeDezenas)
+    {
+        List<int> dezenas = new List<int>();
+        
+        while (dezenas.Count < quantidadeDezenas)
+        {
+            int dezena = random.Next(1, 61);
+            if (!dezenas.Contains(dezena))
+            {
+                dezenas.Add(dezena);
+            }
+        }
+
+        return dezenas;
+    }
+}

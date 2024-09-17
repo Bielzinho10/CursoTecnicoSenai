@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Informe a quantidade de jogos: ");
+        if (int.TryParse(Console.ReadLine(), out int quantidadeJogos) && quantidadeJogos > 0)
+        {
+            List<List<int>> todosJogos = GerarJogos(quantidadeJogos);
+            ExibirJogos(todosJogos);
+        }
+        else
+        {
+            Console.WriteLine("Quantidade de jogos inválida. Por favor, informe um número inteiro positivo.");
+        }
+    }
+
+    static List<List<int>> GerarJogos(int quantidade)
+    {
+        const int quantidadeNumerosPorJogo = 6;
+        const int intervaloMinimo = 1;
+        const int intervaloMaximo = 60;
+
+        List<List<int>> jogos = new List<List<int>>();
+        Random random = new Random();
+
+        for (int i = 0; i < quantidade; i++)
+        {
+            HashSet<int> numeros = new HashSet<int>();
+            while (numeros.Count < quantidadeNumerosPorJogo)
+            {
+                int numero = random.Next(intervaloMinimo, intervaloMaximo + 1);
+                numeros.Add(numero);
+            }
+            jogos.Add(numeros.OrderBy(n => n).ToList());
+        }
+
+        return jogos;
+    }
+
+    static void ExibirJogos(List<List<int>> jogos)
+    {
+        for (int i = 0; i < jogos.Count; i++)
+        {
+            Console.WriteLine($"Jogo {i + 1}: {string.Join(", ", jogos[i])}");
+        }
+    }
+}

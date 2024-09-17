@@ -1,0 +1,24 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		double salario, imposto; 
+		Console.Write(" Calcule seu imposto");
+			Console.Write("Insira o salário");
+		String texto = Console.ReadLine();
+		if(Double.TryParse(texto, out salario)){
+			if(salario <=3000){
+				imposto = salario/10;
+				Console.WriteLine($" O imposto é de 10%, { Math.Round (imposto, 2) } reais");}
+			else if (salario <=6000){
+				imposto = salario * 0.15;
+				Console.WriteLine($" O imposto é de 15%, { Math.Round (imposto, 2) } reais");}
+			else if(salario>6000){
+				imposto = salario/5;
+				Console.WriteLine($" O imposto é de 20%, { Math.Round (imposto, 2) } reais");}
+			}
+		
+	}
+}

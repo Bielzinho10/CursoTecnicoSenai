@@ -1,0 +1,33 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	
+		Console.WriteLine("Insira um Valor em metros: ") ;
+		if(double.TryParse(Console.ReadLine(), out double valor)); 
+		
+				Console.Write("Escolha a unidade de conversão: ");
+				Console.Write ("1) Cm ");
+				Console.Write ("2) Km ");
+				Console.Write ("3) Mi ");
+				if(double.TryParse(Console.ReadLine(), out double medida))
+				
+				switch(medida)
+				{
+					case 1:
+					medida = valor * 100;
+					Console.WriteLine($"O Resultado e: " + Math.Round(medida,2));
+					break;
+					case 2:
+					medida = valor / 1000;
+					Console.WriteLine($"O Resutado e: " + Math.Round(medida,2));
+					break;
+					case 3:
+					medida = valor / 1609 ;
+					Console.WriteLine($"O Resultado e: " + Math.Round(medida,2));
+					break;
+				}
+	}
+}

@@ -1,0 +1,56 @@
+programa {
+  funcao inicio() 
+  {
+    real boiaA, boiaB, boiaC, valvula, bomba
+  
+  escreva ("Informe a situação da Boia A: ")
+  leia (boiaA)
+
+  escreva ("Informe a situação da Boia B: ")
+  leia (boiaB)
+
+  escreva ("Informe a situação da Boia C: ")
+  leia (boiaC)
+
+se (boiaA == 0 e boiaB == 0 e boiaC == 0)
+ { 
+    escreva ("Ligar válvula")
+ }
+
+se ( boiaA ==0 e boiaB == 0 e boiaC == 1)
+ {
+ escreva ("Ligar válvula")
+ }
+
+se ( boiaA == 0 e boiaB == 1 e boiaC == 0)
+{
+  escreva ("ERRO NA VÁLVULA E NA BOMBA")
+}
+
+se ( boiaA == 0 e boiaB == 1 e boiaC == 1)
+ {
+ escreva("ERRO NA VÁLVULA E NA BOMBA")
+ }
+
+se ( boiaA == 1 e boiaB == 0 e boiaC == 0)
+{
+escreva ("Ligar válvula e bomba")
+}
+
+se ( boiaA == 1 e boiaB == 0 e boiaC == 1)
+{
+escreva("Ligar válvula e desligar bomba")
+}
+
+se ( boiaA == 1 e boiaB == 1 e boiaC == 0)
+{
+escreva ("Desligar válvula e ligar bomba")
+}
+
+se ( boiaA == 1 e boiaB == 1 e boiaC == 1)
+{
+escreva ("Desligar válvula e desligar bomba")
+}
+
+  }
+}

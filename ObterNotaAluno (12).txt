@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Random random = new Random();
+        
+        Console.WriteLine("Bem-vindo ao gerador de jogos!");
+
+        // Solicita a quantidade de jogos de 6 dezenas
+        Console.Write("Informe a quantidade de jogos de 6 dezenas que deseja fazer: ");
+        int quantidadeJogos = int.Parse(Console.ReadLine());
+
+        // Solicita a quantidade de dezenas ao usuário com validação
+        int quantidadeDezenas;
+        do
+        {
+            Console.Write("Informe a quantidade de dezenas (entre 6 e 15): ");
+            quantidadeDezenas = int.Parse(Console.ReadLine());
+
+            if (quantidadeDezenas < 6 || quantidadeDezenas > 15)
+            {
+                Console.WriteLine("Número inválido! A quantidade de dezenas deve estar entre 6 e 15.");
+            }
+
+        } while (quantidadeDezenas < 6 || quantidadeDezenas > 15);// cria um laço que executa uma declaração até que o teste da condição for falsa
+
+        // Solicita o valor do prêmio
+        Console.Write("Informe o valor do prêmio: ");
+        decimal premio = decimal.Parse(Console.ReadLine());// para ler cada linha no arquivo
+
+        // Calcula a distribuição do prêmio
+        decimal premioAcertos6 = premio * 0.75m;
+        decimal premioAcertos5 = premio * 0.15m;
+        decimal premioAcertos4 = premio * 0.10m;
+
+        // Exibe a distribuição do prêmio
+        Console.WriteLine($"\nDistribuição do prêmio:");
+        Console.WriteLine($"75% para quem acertar 6 dezenas: {premioAcertos6:C}");//Grava a representação dos texto especificados
+        Console.WriteLine($"15% para quem acertar 5 dezenas: {premioAcertos5:C}");//Grava a representação dos texto especificados
+        Console.WriteLine($"10% para quem acertar 4 dezenas: {premioAcertos4:C}");//Grava a representação dos texto especificados
+
+        // Gera e exibe os jogos
+        for (int i = 1; i <= quantidadeJogos; i++) //incrementa a variável i depois dela ser utilizada no comando, o ++ é o operador de incremento, que é o contador do laço
+        {
+            List<int> dezenas = GenerateDezenas(random, quantidadeDezenas); //Fornece métodos para pesquisar, classificar e manipular listas
+            Console.WriteLine($"Jogo {i}: {string.Join(", ", dezenas)}"); //Retorna uma cadeia de caracteres criada unindo um número de subcadeias em uma matriz
+        }
+    }
+
+    static List<int> GenerateDezenas(Random random // retorna um número real aleatório entre 0 e 1, int quantidadeDezenas)//para referenciar todos aqueles métodos de classe, não precisa instanciar um objeto pra acessar algum método dela
+    {
+        List<int> dezenas = new List<int>();
+        
+        while (dezenas.Count //conta o número de registros que contêm um número em uma tabela de coluna única < quantidadeDezenas)
+        {
+            int dezena = random.Next(1, 61); //Gerando dezenas entre 1 e 60
+            if (!dezenas.Contains //Retorna um valor que indica se uma cadeia de caracteres especificada ocorre nessa cadeia de caracteres (dezena)) //Verifica se a dezena já foi adicionada
+            {
+                dezenas.Add //define um acessador de evento personalizado que é invocado quando o código cliente assina seu evento (dezena);
+            }
+        }
+
+        return dezenas;
+    }
+}

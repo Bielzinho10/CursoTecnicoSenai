@@ -1,0 +1,25 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Digite o valor em reais: ");
+		
+		if (decimal.TryParse(Console.ReadLine(),out decimal valor)) 
+		{
+			decimal dolares = valor /5.47m;
+			decimal euros = valor /6.09m;
+			decimal libras = valor /7.14m; 	
+			
+			Console.WriteLine($"Valor em dólar: {Math.Round(dolares,2)}");
+			Console.WriteLine($"Valor em euro: {Math.Round(euros,2)}");
+			Console.WriteLine($"Valor em libra: {Math.Round(libras,2)}");
+			
+		}
+		else 
+		{
+			Console.WriteLine("Valor invalido.");
+		}
+	}
+}
